@@ -101,32 +101,22 @@ It is worth updating these software on a regular basis as some of the most power
 
 We may want our R scripts to be saved into a place where they link seamlessly to other documents and data files for our research project. We may also want our tables, figures and statistical results to be written to locations on our computer where they are easy to locate.
 
-The folder **JCU telemetry workshop** I have provided you with contains the course documents and the data we are going to be working with. This is organised in the same format that I organise all my project files, and I have found it completely transferable across all the projects I am involved with. The main project folder contains the following sub folders:
-
-1.  Documents
-2.  Data
-3.  R Code
-4.  GIS
+The folder *JCU-2017-R-Workshop* that you have just downloaded from [github](https://github.com/RossDwyer/JCU-2017-R-Workshop) contains the course documents and the data we are going to be working with. 
 
 First unzip this folder and extract the folder to a location on your computer that you typically store your research files. 
 
-To link with these folders, we are going to use the `Project` functionality of R Studio.
+The *JCU-2017-R-Workshop* folder is organised in the same format that I organise all my project files, and I have found it completely transferable across all the projects I am involved with. The main project folder contains the following sub folders:
 
-In R Studio, click *File > New Project*.
+1.  Data
+2.  GIS
+3.  Images
+4.  R code
 
-To create a new project use the *Create Project* command (available on the Projects menu and on the global toolbar):
-
-![alt text](Images/RStudio_newproj.png)"
-
-Select *Existing Directory* then save the project within the "JCU telemetry workshop" folder. 
-
-When a *New Project* is created, R Studio:
-
-1.  Creates a project file (with an **.Rproj** extension) within the project directory. This file contains various project options (discussed below) and can also be used as a shortcut for opening the project directly from the file system.
-2.  Creates a hidden directory (named **.Rproj.user**) where project-specific temporary files (e.g. auto-saved source documents, window-state, etc.) are stored. 
-3.  Loads the project into R Studio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar (very TOP RIGHT of the R Studio window).
+There is also a .Rproj file, which uses the `Project` functionality of R Studio to link your project within this working directory.
 
 Working with Projects is a good idea because it saves the address that files are located and makes you coding much more elegant. It also allows you to share your script easily and seamlessly with collaborators.
+
+Lastly there is a .Rmd file which constains the script I used to construct these course documents. Fancy huh?
 
 ------------------------------------------
 
@@ -300,27 +290,11 @@ However, this plot is  a little misleading - the longitude and latitude fields h
 
 ------------------------------------------
 
-##Installing packages
+##Packages
 
 Part of the reason R has become so popular is the vast array of packages that are freely available and highly accessible. In the last few years, the number of packages has grown exponentially - 8000 at my last check on CRAN! These can help you to do a galaxy of different things in R, including running complex analyses, drawing beautiful figures, running R as a GIS, constructing your own R packages, building web pages and even writing introductory R course handbooks!
 
-Let’s suppose you want to load the *sp* package to access this package's incredible spatial functionality.
-
-If this package is not already installed on your machine, you can download it from the web by using the following command in R.
-
-```
-install.packages("sp", repos='http://cran.us.r-project.org')
-```
-
-In this example, `sp` is the package to be downloaded and 'http://cran.us.r-project.org' is the repository where the package will be accessed from
-
-Multiple packages can be loaded at the same time by listing the required packages in a vector 
-
-```
-install.packages(c("sp","rgdal","rgeos","adehabitatLT","adehabitatHR"), repos='http://cran.us.r-project.org')
-```
-
-We then load the required packages using the `library()` function.
+Once we have installed all our required packages using the `install.packages()` function, we then load the required packages using the `library()` function.
 
 ```{r, echo=FALSE}
 library(sp)
@@ -764,7 +738,7 @@ cassdat.df <- as.data.frame(cassdat.lt.WGS)
 cassdat.df$date <- as.POSIXct(cassdat.df$date)
 
 # Now insert functions into the pipe chain
-cassdat.df %>% View()
+#cassdat.df %>% View()
 cassdat.df %>% head()
 ```
 
@@ -958,7 +932,6 @@ We start by specifying a base layer, then we can add features to it. We will str
 The below code first creates a map widget using the cassowary data frame. Then we `addTiles`, which is the background to the map. See [this page](http://rstudio.github.io/leaflet/basemaps.html) for the numerous base map options. Finally, we add some markers, located using the longitude and latitude variables in the cassowary data frame:
 
 ```{r, eval = FALSE}
-
 mymap <- 
 leaflet(cassdat.df7) %>%
   
@@ -989,13 +962,12 @@ leaflet(cassdat.df7) %>%
 mymap
 ```
 
-
-Finally you can save this leaflet document at an html file and share it with your friends or colleagues
-
+Finally you can save this leaflet document at a .html file and share it with your friends or colleagues...
 
 ```{r, eval = FALSE}
 saveWidget(mymap, file="mymap.html") # uses the htmldidgets package
 
+# Notice the file is saved to your working directory
 ```
 
 *Extra task* - try writing the `SpatialPolygons` object containing our home ranges and our `SpatialLines` object containing our trajectory lines to this leaflet object 
