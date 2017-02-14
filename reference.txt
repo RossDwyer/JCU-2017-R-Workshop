@@ -1,0 +1,52 @@
+reference.txt
+
+***** Project Detail
+
+Title: Tracking juvenile cassowaries on Cape Tribulation using GPS-based telemetry
+Description: This project used GPS-based telemetry to follow the movements of three juvenile southern cassowaries. The orphaned birds were rehabilitated at the DERM facility at Garners Beach for up to 12 months. Their movements were tracked for between 6 and 20 weeks after release.
+Species Scientific Name: casuarius casuarius johnsonii
+Species Common Name: southern cassowary
+Spatial Coverage Description: Cape Tribulation
+SRS Identifier: EPSG:28355
+Crosses 180: false
+ZoaTrack Data Access Type: OPEN
+Data Licence Identifier: CC-BY
+Data Licence Title: Creative Commons Attribution License
+Data Licence URL: http://creativecommons.org/licenses/by/3.0/
+Data Creators:
+Dr Ross Dwyer
+Dr Hamish Campbell
+
+***** Animal Detail
+
+Animal Id: 3
+Project Animal Id: M2
+Animal Name: M2
+ZoaTrack Colour: #1ded4b
+Sex: Male
+Weight: 20
+Life Phase: sub-adult
+Tag Attachment Technique: leg band
+*****
+
+Animal Id: 4
+Project Animal Id: Annabelle
+Animal Name: Annabelle
+ZoaTrack Colour: #d38480
+Sex: Female
+Weight: 25
+Tag Attachment Technique: leg band
+*****
+
+Animal Id: 5
+Project Animal Id: Dooley
+Animal Name: Dooley
+ZoaTrack Colour: #f2fd62
+Sex: Male
+Weight: 25
+Life Phase: sub-adult
+Experimental Context: re-introduction
+Tag Attachment Technique: leg band
+Tag Data Retrieval Method: retrieval
+*****
+
