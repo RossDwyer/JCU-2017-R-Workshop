@@ -4,7 +4,7 @@ install.packages(c("sp",
                    "rgdal",
                    "rgeos",
                    "adehabitatLT",
-                   "adehabitatHR".
+                   "adehabitatHR",
                    "leaflet",
                    "htmlwidgets",
                    "RColorBrewer",
