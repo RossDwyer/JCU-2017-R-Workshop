@@ -296,7 +296,7 @@ Part of the reason R has become so popular is the vast array of packages that ar
 
 Once we have installed all our required packages using the `install.packages()` function, we then load the required packages using the `library()` function.
 
-```{r, echo=FALSE}
+```{r}
 library(sp)
 library(rgdal)
 library(rgeos)
@@ -309,13 +309,14 @@ Here we have installed and loaded our required **R** spatial packages, including
 ----------------------------
 
 ![Cassowary tracks overlayed with the animal's home range](Images/caro_cass_dooley.jpg)
+
 ##Working with spatial objects
 
 R offers a variety of functions for importing, manipulating, analyzing, and exporting spatial data. Although one might at first consider this to be the exclusive domain of GIS software, using R can frequently provide a much more lightweight, yet equally effective solution that embeds within a larger analytic workflow.
 
 One of the tricky aspects of pulling spatial data into your analytic workflow is that there are numerous complicated data formats. In fact, even within R itself, functions from different user-contributed packages often require the data to be structured in very different ways. The good news is that efforts are underway to standardize spatial data classes in R. This movement is facilitated by sp, an important base package for spatial operations in R. It provides definitions for basic spatial classes (points, lines, polygons, pixels, and grids) in an attempt to unify the way R packages represent and manage these sorts of data. It also includes some core functions for creating and manipulating these data structures. The hope is that all spatial R packages will use (or at least provide conversions to) the 'Spatial' data class and it's derivatives, as now defined in the sp package. All else being equal, we favor R functions and packages that conform to the sp standard, as these are likely to provide the greatest future utility and durability.
 
-[Here](http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html) is a very useful style giude for coding using `Spatial` objects. 
+[This website](http://www.maths.lancs.ac.uk/~rowlings/Teaching/UseR2012/cheatsheet.html) has a very useful style guide for working with `Spatial` objects. 
 
 ---------------------------
 
@@ -325,14 +326,17 @@ The most basic spatial data object is a point, which may have 2 (X, Y) or 3 comp
 
 In this exercise we are going to convert our cassowary locations from a standard data frame object into a `SpatialPointsDataFrame` object.
 
-```{r,echo=FALSE}
+```{r}
 # First make a duplicate of points.df to retain the non-spatial version
 cassdat.sp <- cassdat2
 
 # Now convert the data.frame object into a SpatialPoints object
 coordinates(cassdat.sp)<- c("LONGITUDE", "LATITUDE")
+```
 
-## Have a look at the created object
+You can have a look at the created object using the `class` and `str` functions
+
+```{r,eval=FALSE}
 class(cassdat.sp)
 str(cassdat.sp)
 ```
@@ -350,7 +354,7 @@ head(cassdat.sp@data)
 slot(cassdat.sp,'data') 
 ```
 
-Now let’s draw a simple spatial plot of the cassowary locations 
+Now let's draw a simple spatial plot of the cassowary locations 
 
 ```{r}
 # First extract the names of cassowaries to help colour our plots
@@ -618,7 +622,7 @@ library(spacetime)
 library(plotKML)
 newXY <- SpatialPoints(coordinates(cassdat.lt.WGS))
 proj4string(newXY) <- CRS("+proj=longlat +datum=WGS84")
-newXY.st <- STIDF(newXY, time = cassdat.lt.WGS@data$date, data = cassdat.lt.WGS@data[,c("id")])
+newXY.st <- STIDF(newXY, time = cassdat.lt.WGS@data$date, data = data.frame(id=cassdat.lt.WGS@data[,c("id")]))
  
 # write to a KML file:
 shape <- "http://maps.google.com/mapfiles/kml/pal2/icon18.png"
@@ -657,7 +661,7 @@ library(tidyverse)
 broom, **dplyr**, forcats, **ggplot2**, haven, httr, hms, jsonlite, lubridate, magrittr, modelr, purrr, **readr**, readxl, stringr, tibble, rvest, **tidyr**, xml2
 
 ###tidy style
-tidyverse code has a certain look:
+**tidyverse** code has a certain look:
 ```{r, eval = FALSE}
 exampledata %>%
   gather(code, value, new_sp_m014:newrel_f65, na.rm = TRUE) %>% 
@@ -667,7 +671,7 @@ exampledata %>%
   separate(sexage, c("sex", "age"), sep = 1)
 ```
 
-ggplot, one of the packages in the tidyverse, has a similar look...
+**ggplot2**, one of the packages in the tidyverse, has a similar look...
 ```{r, eval = FALSE}
 exampledata  %>% 
 ggplot(aes(x=ntags, y=nPU)) +
@@ -830,7 +834,7 @@ The package makes it very easy to generate some very impressive figures and util
 
 Documentation for ggplot can be found [here](http://ggplot2.org/) and [here](http://docs.ggplot2.org/current/index.html).
 
-There is also this awesome [Cheetsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) for ggplot2
+There is also this awesome [Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) for ggplot2
 
 In the below script we call the data set we have just made (`cassdat.df5`) and then pipe it into the ggplot function. We than tell ggplot that we want to plot a box plot
 
@@ -901,7 +905,7 @@ cassdat.df6 %>%
 
 ##Interactive maps using leaflet
 
-For our last task I want to show you how you can make some really cutting edge visuals with R, which will help you share your work with collaborators. We are going to make a simple web-based map using the  leaflet package. The leaflet package utilises the open-access leaflet JavaScript library (a web programming language), to create web-based maps. We will cover a basic map with some points on it today. See [Rstudio’s leaflet page](http://rstudio.github.io/leaflet/) for help and more mapping features, like polygons.
+For our last task I want to show you how you can make some really cutting edge visuals with R, which will help you share your work with collaborators. We are going to make a simple web-based map using the  leaflet package. The leaflet package utilises the open-access leaflet JavaScript library (a web programming language), to create web-based maps. We will cover a basic map with some points on it today. See [Rstudio's leaflet page](http://rstudio.github.io/leaflet/) for help and more mapping features, like polygons.
 
 To get started with leaflet, first, make sure you have the leaflet and htmlwidgets packages installed, and then load it into this session:
 
