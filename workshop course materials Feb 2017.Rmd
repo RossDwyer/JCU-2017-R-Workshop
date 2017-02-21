@@ -26,7 +26,7 @@ knitr::include_graphics("Images/Cassowary track.png")
 #Introductions
 
 ##Who am I?
-I am a spatial ecologist with a strong interest in understanding the drivers of movement, space use and community structure in free-ranging animals. I've used R for over 12 years, have published two R packages on CRAN and regularly teach R training courses at the University of Queensland and at other institutes around Australia.
+I am a spatial ecologist with a interest in understanding the drivers of movement, space use and community structure in free-ranging animals. I've used R for over 12 years, have published two R packages on CRAN and regularly teach R training courses at the University of Queensland and at other institutes around Australia.
 
 For more information and teaching resources, check out [my website](https://www.uq.edu.au/eco-lab/content/dr-ross-dwyer).
 
@@ -34,9 +34,9 @@ For more information and teaching resources, check out [my website](https://www.
 
 **In this course you will learn how to analyse and interpret your telemetry datasets in R**. This workshop will hopefully show you how **R** can make the processing of spatial data much quicker and easier than using standard GIS software, and can help you plot some *deadly* figures! At the end of this workshop you will also have the annotated **R** code that you can re-run at any time, share with collaborators and build on with those newly acquired data!
 
-I designed this course not to comprehensively cover all the tools in **R**, but rather to teach you skills for taking your experience with R to the next level. Every new project comes with its own problems and questions and you will need to be independent, patient and creative to solve these challenges. It makes sense to invest time in becoming familiar with **R**, because today **R** is the leading platform for environmental data analysis and has some other functionalities which may surprise you! 
+I designed this course not to comprehensively cover all the tools in **R**, but rather to teach you skills for taking your experience with **R** to the next level. Every new project comes with its own problems and questions and you will need to be independent, patient and creative to solve these challenges. It makes sense to invest time in becoming familiar with **R**, because today **R** is the leading platform for environmental data analysis and has some other functionalities which may surprise you! 
 
-This R workshop will be divided into 2 sessions intended to run about 1 hr 15 mins each.
+This R workshop will be divided into **2 sessions** intended to run about 1 hr 15 mins each.
 
 * Session 1: 
 
@@ -60,13 +60,13 @@ This R workshop will be divided into 2 sessions intended to run about 1 hr 15 mi
 
 ##The Challenge
 
-The process of turning raw telemetry data into publishable results is a highly involved process. Data sets are becoming larger, and larger as they are being gathered over longer time periods, over larger spatial extents and at increasing temporal resolutions. While this is increasing our ability to detect subtle patterns, these data sets are becoming so vast that they come with additional challenges.
+The process of turning raw telemetry data into publishable results is a highly involved process. Data sets are becoming larger and larger as they are being gathered over longer time periods, over larger spatial extents and at increasing temporal resolutions. While this is increasing our ability to detect subtle patterns, these data sets are becoming so vast that they come with additional challenges.
 
-Our analysis may require us to filter these large data sets and integrate components with other data sets that we have gathered ourselves, acquired from our collaborators or downloaded from online repositories. These data may have different header rows, the values may be in the wrong format or likely cover different spatial or temporal scales. This spatial and temporal component may also be important - for integrating with other data sets or requiring us to apply specialised analytical techniques. Finally, multiple software platforms may be needed to process the data, run the analyses and generate results. 
+Our analysis may require us to filter these large data sets and integrate components with other data sets that we have gathered ourselves, acquired from our collaborators or downloaded from online repositories. These data may have different header rows, the values may be in the wrong format or likely cover different spatial or temporal scales. This spatial and temporal component may also be important - for integrating with other data sets or requiring specialised analytical techniques. Finally, multiple software platforms may be needed to process the data, run the analyses and generate results. 
 
-This process can require a huge investment in time: rearranging data, removing erroneous values, purchasing, downloading and learning the new software, and running analyses. Furthermore merging together excel spreadsheets, filtering data and preparing data for statistical analyses and plotting in different software packages can introduce all sorts of errors. 
+This process can require a huge investment in time: rearranging data, removing erroneous values, purchasing, downloading and learning the new software, and running analyses. Furthermore merging together Excel spreadsheets, filtering data and preparing data for statistical analyses and plotting in different software packages can introduce all sorts of errors. 
 
-*There is a better way...*
+**There is a better way...**
 
 ---------------------------------------
 
@@ -99,7 +99,7 @@ It is worth updating these software on a regular basis as some of the most power
 
 ##Working with projects
 
-We may want our R scripts to be saved into a place where they link seamlessly to other documents and data files for our research project. We may also want our tables, figures and statistical results to be written to locations on our computer where they are easy to locate.
+We may want our **R** scripts to be saved into a place where they link seamlessly to other documents and data files for our research project. We may also want our tables, figures and statistical results to be written to locations on our computer where they are easy to locate.
 
 The folder *JCU-2017-R-Workshop* that you have just downloaded from [github](https://github.com/RossDwyer/JCU-2017-R-Workshop) contains the course documents and the data we are going to be working with. 
 
